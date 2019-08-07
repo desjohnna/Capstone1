@@ -13,12 +13,12 @@ public class EmployeeServiceLayer {
     @Autowired
     EmployeeRepository employeeRepo;
 
-
+    //CRUD Routes
     public Employees findByUserId(int id) {
         return employeeRepo.findByUserId(id);
     }
 
-    //CRUD Routes
+
     public Employees createEmployee(Employees employee) {
         return employeeRepo.save(employee);
     }
@@ -40,7 +40,7 @@ public class EmployeeServiceLayer {
         return employeeRepo.findAll();
     }
 
-
+    //Custom method
     public List<Employees> findByCompanyName(String companyName) {
         return employeeRepo.findByCompanyName(companyName);
     }

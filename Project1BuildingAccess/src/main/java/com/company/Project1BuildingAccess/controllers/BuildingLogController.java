@@ -19,7 +19,7 @@ public class BuildingLogController {
         return buildingLogService.findLogByUserId(userId);
     }
 
-    //WORKING
+
     @RequestMapping(value = "/log/company/{companyName}", method = RequestMethod.GET)
     public List<BuildingLog> findLogByCompanyName(@PathVariable String companyName) {
         return buildingLogService.findLogByCompanyName(companyName);
@@ -34,7 +34,7 @@ public class BuildingLogController {
     public BuildingLog newLogEntry(@RequestBody BuildingLog buildingLog) {
 
         //If requested time is between 6am - 7pm allow building entry
-        if(buildingLog.getLogTime() > 600 && buildingLog.getLogTime() < 1900) {
+        if (buildingLog.getLogTime() > 600 && buildingLog.getLogTime() < 1900) {
             return buildingLogService.newLogEntry(buildingLog);
 
             //If outside those times show that the building is closed

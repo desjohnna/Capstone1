@@ -59,10 +59,6 @@ public class BuildingLogServiceTest {
         assertEquals(masterBuildingLog, buildingLogService.masterBuildingLog());
     }
 
-//    @Test
-//    public void findLogByUserIdTest() {
-//        List<BuildingLog> user30
-//    }
 
 
 

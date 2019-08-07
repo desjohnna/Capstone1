@@ -11,9 +11,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Calendar;
 
@@ -58,18 +55,21 @@ public class CompanyControllerTest {
 
     }
 
-//    @Test
-//    public void shouldFindCompanyByName() throws Exception {
-//        employeesList = Arrays.asList(employees1, employees2);
-//
-//        when(mockCompanyServ
-//                .findByCompanyName(employeesList.get(0).getCompanyName())).thenReturn(employeesList);
-//
-//        mockMvc.perform(get("/company/name/" + employeesList.get(0).getCompanyName()))
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$", hasSize(2)))
-//                .andExpect(jsonPath("$[0].title", is(employeesList.get(0).getCompanyName())));
-//
-//        verify(mockCompanyServ).findByCompanyName(employeesList.get(0).getCompanyName());
-//    }
+    @Test
+    public void shouldFindCompanyByName() throws Exception {
+
+        //Add made up employees to new employeeList
+        employeesList = Arrays.asList(employees1, employees2);
+
+        //When mock service gets
+        when(mockCompanyServ
+                .findByCompanyName(employeesList.get(0).getCompanyName())).thenReturn(employeesList);
+
+        mockMvc.perform(get("/company/name/" + employeesList.get(0).getCompanyName()))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(2)))
+                .andExpect(jsonPath("$[0].title", is(employeesList.get(0).getCompanyName())));
+
+        verify(mockCompanyServ).findByCompanyName(employeesList.get(0).getCompanyName());
+    }
 }

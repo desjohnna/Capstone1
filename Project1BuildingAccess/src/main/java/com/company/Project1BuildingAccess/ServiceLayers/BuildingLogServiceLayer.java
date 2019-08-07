@@ -20,7 +20,7 @@ public class BuildingLogServiceLayer {
         return buildingLogRepo.findLogByCompanyName(companyName);
     }
 
-    public List<BuildingLog> masterBuildingLog(){
+    public List<BuildingLog> masterBuildingLog() {
         return buildingLogRepo.findAll();
     }
 
